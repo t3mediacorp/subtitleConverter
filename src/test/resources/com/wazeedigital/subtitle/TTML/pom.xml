@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.wazeedigital</groupId>
+	<artifactId>wazee-subtitle</artifactId>
+	<name>subtitleConvert</name>
+	<url>https://github.com/JDaren/subtitleConverter</url>
+	<parent>
+		<groupId>com.t3media</groupId>
+		<artifactId>t3-parent-pom</artifactId>
+		<version>4.2</version>
+	</parent>
+	<description>This is a java framework for processing subtitle formats and converting them into other formats. So far the formats supported are EBU's STL, .SCC, .ASS/.SSA .SRT and a subset of W3C's TTML 1.0.
+Forked July 2018 by Wazee Digital.</description>
+	<inceptionYear>2013</inceptionYear>
+	<organization>
+		<name>J. David REQUEJO RODRIGUEZ</name>
+		<url>http://subtitleconverter.net/</url>
+	</organization>
+	
+	<scm>
+		<url>git@github.com:JDaren/subtitleConverter.git</url>
+		<connection>scm:git:git@github.com:JDaren/subtitleConverter.git</connection>
+		<developerConnection>scm:git:git@github.com:JDaren/subtitleConverter.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+	
+	<properties>
+		<main.class>Convert</main.class>
+		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<github.global.server>github</github.global.server>
+	</properties>
+
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<email>j.david.requejo@gmail.com</email>
+			<name>J. David Requejo</name>
+			<url>https://github.com/JDaren</url>
+			<id>JDaren</id>
+		</developer>
+	</developers>
+
+
+	<dependencies>
+		<dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easytesting</groupId>
+			<artifactId>fest-assert</artifactId>
+			<version>1.4</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>release-sign-artifacts</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.1</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<version>2.0-SNAPSHOT</version>
+</project>
+
+

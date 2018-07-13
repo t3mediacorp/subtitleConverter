@@ -1,4 +1,4 @@
-package subtitleFile;
+package com.wazeedigital.subtitle;
 
 import java.io.BufferedReader;
 import java.io.IOException;

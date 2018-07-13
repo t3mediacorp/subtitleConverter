@@ -1,11 +1,11 @@
-package subtitleFile;
+package com.wazeedigital.subtitle;
 
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.TreeMap;
 
 /**
- * These objects can (should) only be created through the implementations of parseFile() in the {@link subtitleFile.TimedTextFileFormat} interface
+ * These objects can (should) only be created through the implementations of parseFile() in the {@link com.wazeedigital.subtitle.TimedTextFileFormat} interface
  * They are an object representation of a subtitle file and contain all the captions and associated styles.
  * <br><br>
  * Copyright (c) 2012 J. David Requejo <br>

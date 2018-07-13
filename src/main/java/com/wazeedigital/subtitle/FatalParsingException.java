@@ -1,4 +1,4 @@
-package subtitleFile;
+package com.wazeedigital.subtitle;
 
 /**
  * This class represents problems that may arise during the parsing of a subttile file.

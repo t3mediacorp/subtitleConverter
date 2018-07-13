@@ -1,4 +1,4 @@
-package subtitleFile;
+package com.wazeedigital.subtitle;
 
 public class Caption {
 	

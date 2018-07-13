@@ -1,7 +1,2 @@
-**/*.class
-.classpath
-.project
-.settings/
-/target
-/bin
-.directory
+target
+

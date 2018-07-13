@@ -5,13 +5,13 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import subtitleFile.FormatASS;
-import subtitleFile.FormatSCC;
-import subtitleFile.FormatSRT;
-import subtitleFile.FormatSTL;
-import subtitleFile.FormatTTML;
-import subtitleFile.TimedTextFileFormat;
-import subtitleFile.TimedTextObject;
+import com.wazeedigital.subtitle.FormatASS;
+import com.wazeedigital.subtitle.FormatSCC;
+import com.wazeedigital.subtitle.FormatSRT;
+import com.wazeedigital.subtitle.FormatSTL;
+import com.wazeedigital.subtitle.FormatTTML;
+import com.wazeedigital.subtitle.TimedTextFileFormat;
+import com.wazeedigital.subtitle.TimedTextObject;
 
 
 public class Tests {

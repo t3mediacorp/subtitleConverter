@@ -25,19 +25,19 @@ public class FormatSRTTest {
 			assertThat(tto.fileName).isEqualTo(("Avengers.2012.Eng.Subs.srt"));
 			assertThat(tto.warnings).isEqualTo(("List of non fatal errors produced during parsing:\n\n"));
 
-			// System.out.println(tto.captions);
+			System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(1760);
 
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:00:27.16");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:00:30.00");
+			assertThat(caption.start.toString()).isEqualTo("00:00:27.160");
+			assertThat(caption.end.toString()).isEqualTo("00:00:30.000");
 			assertThat(caption.content).isEqualTo("<i>The Tesseract has awakened.</i><br />");
 
 			// 3463280=Caption{00:57:43.28..00:57:45.63, null, null: So you're saying that the Hulk...<br />}
 			caption = tto.captions.get(3463280);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:57:43.28");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:57:45.63");
+			assertThat(caption.start.toString()).isEqualTo("00:57:43.280");
+			assertThat(caption.end.toString()).isEqualTo("00:57:45.635");
 			assertThat(caption.content).isEqualTo("So you're saying that the Hulk...<br />");
 		}
 	}

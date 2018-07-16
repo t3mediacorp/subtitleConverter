@@ -32,14 +32,14 @@ public class FormatASSTest {
 			assertThat(tto.captions).hasSize(2);
 
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:02:40.65");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:02:41.79");
+			assertThat(caption.start.toString()).isEqualTo("00:02:40.650");
+			assertThat(caption.end.toString()).isEqualTo("00:02:41.790");
 			assertThat(caption.content).isEqualTo("Et les enregistrements de ses ondes delta ?");
 
 			// 162420=Caption{00:02:42.42..00:02:44.15, Wolf main, null: Toujours rien.}
 			caption = tto.captions.get(162420);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:02:42.42");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:02:44.15");
+			assertThat(caption.start.toString()).isEqualTo("00:02:42.420");
+			assertThat(caption.end.toString()).isEqualTo("00:02:44.150");
 			assertThat(caption.content).isEqualTo("Toujours rien.");
 		}
 	}
@@ -59,8 +59,8 @@ public class FormatASSTest {
 			// // 1781665=Caption{00:29:41.66..00:29:45.13, null, null: Not me. You're the one who<br />wants to get
 			// // yourself killed. Not me.<br />}
 			// Caption caption = tto.captions.get(1781665);
-			// assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:29:41.66");
-			// assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:29:45.13");
+			// assertThat(caption.start.getTime(Time.FORMAT_HH_MM_SS_DOT_MS,0)).isEqualTo("00:29:41.660");
+			// assertThat(caption.end.getTime(Time.FORMAT_HH_MM_SS_DOT_MS,0)).isEqualTo("00:29:45.130");
 			// assertThat(caption.content)
 			// .isEqualTo("Not me. You're the one who<br />wants to get yourself killed. Not me.<br />");
 		}

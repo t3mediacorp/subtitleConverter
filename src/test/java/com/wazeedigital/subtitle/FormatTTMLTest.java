@@ -35,15 +35,15 @@ public class FormatTTMLTest {
 
 			// -60000=Caption{00:-1:00.00..00:-1:00.00, white, null: }
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:-1:00.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:-1:00.00");
+			assertThat(caption.start.toString()).isEqualTo("00:-1:00.00");
+			assertThat(caption.end.toString()).isEqualTo("00:-1:00.00");
 			assertThat(caption.content).isEqualTo("");
 
 			// 36343000=Caption{10:05:43.00..10:05:59.00, white, null: Simple Snake Subtitle test one two<br /> three
 			// four five six seven eight nine}
 			caption = tto.captions.get(36343000);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("10:05:43.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("10:05:59.00");
+			assertThat(caption.start.toString()).isEqualTo("10:05:43.00");
+			assertThat(caption.end.toString()).isEqualTo("10:05:59.00");
 			assertThat(caption.content)
 					.isEqualTo("   Simple Snake Subtitle test one two<br />   three four five six seven eight nine");
 		}
@@ -65,15 +65,15 @@ public class FormatTTMLTest {
 
 			// -60000=Caption{00:-1:00.00..00:-1:00.00, white, null: }
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:-1:00.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:-1:00.00");
+			assertThat(caption.start.toString()).isEqualTo("00:-1:00.00");
+			assertThat(caption.end.toString()).isEqualTo("00:-1:00.00");
 			assertThat(caption.content).isEqualTo("");
 
 			// 36343000=Caption{10:05:43.00..10:05:59.00, white, null: Simple Snake Subtitle test one two<br /> three
 			// four five six seven eight nine}
 			caption = tto.captions.get(36343000);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("10:05:43.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("10:05:59.00");
+			assertThat(caption.start.toString()).isEqualTo("10:05:43.00");
+			assertThat(caption.end.toString()).isEqualTo("10:05:59.00");
 			assertThat(caption.content)
 					.isEqualTo("   Simple Snake Subtitle test one two<br />   three four five six seven eight nine");
 		}
@@ -95,15 +95,15 @@ public class FormatTTMLTest {
 
 			// -60000=Caption{00:-1:00.00..00:-1:00.00, white, null: }
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:-1:00.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:-1:00.00");
+			assertThat(caption.start.toString()).isEqualTo("00:-1:00.00");
+			assertThat(caption.end.toString()).isEqualTo("00:-1:00.00");
 			assertThat(caption.content).isEqualTo("");
 
 			// 36343000=Caption{10:05:43.00..10:05:59.00, white, null: Simple Snake Subtitle test one two<br /> three
 			// four five six seven eight nine}
 			caption = tto.captions.get(36343000);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("10:05:43.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("10:05:59.00");
+			assertThat(caption.start.toString()).isEqualTo("10:05:43.00");
+			assertThat(caption.end.toString()).isEqualTo("10:05:59.00");
 			assertThat(caption.content)
 					.isEqualTo("   Simple Snake Subtitle test one two<br />   three four five six seven eight nine");
 		}

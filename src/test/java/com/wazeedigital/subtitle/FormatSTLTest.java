@@ -78,15 +78,15 @@ public class FormatSTLTest {
 
 			// -60000=Caption{00:-1:00.00..00:-1:00.00, white, null: }
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:-1:00.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:-1:00.00");
+			assertThat(caption.start.toString()).isEqualTo("00:-1:00.000");
+			assertThat(caption.end.toString()).isEqualTo("00:-1:00.000");
 			assertThat(caption.content).isEqualTo("");
 
 			// 36343000=Caption{10:05:43.00..10:05:59.00, white, null: Simple Snake Subtitle test one two<br /> three
 			// four five six seven eight nine}
 			caption = tto.captions.get(36343000);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("10:05:43.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("10:05:59.00");
+			assertThat(caption.start.toString()).isEqualTo("10:05:43.000");
+			assertThat(caption.end.toString()).isEqualTo("10:05:59.000");
 			assertThat(caption.content)
 					.isEqualTo("   Simple Snake Subtitle test one two<br />   three four five six seven eight nine");
 		}
@@ -107,14 +107,14 @@ public class FormatSTLTest {
 
 			// 0=Caption{00:00:00.00..00:00:00.00, white, null: }
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:00:00.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:00:00.00");
+			assertThat(caption.start.toString()).isEqualTo("00:00:00.000");
+			assertThat(caption.end.toString()).isEqualTo("00:00:00.000");
 			assertThat(caption.content).isEqualTo("");
 
 			// 3410280=Caption{00:56:50.28..00:56:53.28, black, null: No puede ser. Por qué<br />nos iban a abandonar?}
 			caption = tto.captions.get(3410280);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:56:50.28");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:56:53.28");
+			assertThat(caption.start.toString()).isEqualTo("00:56:50.280");
+			assertThat(caption.end.toString()).isEqualTo("00:56:53.280");
 			assertThat(caption.content).isEqualTo("No puede ser. Por qué<br />nos iban a abandonar?");
 		}
 	}
@@ -134,15 +134,15 @@ public class FormatSTLTest {
 
 			// 0=Caption{00:00:00.00..00:00:00.00, white, null: }
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:00:00.00");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:00:00.00");
+			assertThat(caption.start.toString()).isEqualTo("00:00:00.000");
+			assertThat(caption.end.toString()).isEqualTo("00:00:00.000");
 			assertThat(caption.content).isEqualTo("");
 
 			// 2982400=Caption{00:49:42.40..00:49:45.72, white, null: ...espanoles es usted; pero por sus<br />
 			// multiples mentiras. Le he...}
 			caption = tto.captions.get(2982400);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("00:49:42.40");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("00:49:45.72");
+			assertThat(caption.start.toString()).isEqualTo("00:49:42.400");
+			assertThat(caption.end.toString()).isEqualTo("00:49:45.720");
 			assertThat(caption.content)
 					.isEqualTo("...espanoles es usted; pero por sus<br />   multiples mentiras. Le he...");
 		}

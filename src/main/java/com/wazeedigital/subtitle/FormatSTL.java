@@ -169,8 +169,8 @@ public class FormatSTL implements TimedTextFileFormat {
 						// if it is just additional text for the caption
 						parseTextForSTL(currentCaption, textField, justification, tto);
 					else {
-						currentCaption.start = new Time("h:m:s:f/fps", startTime + "/" + fps);
-						currentCaption.end = new Time("h:m:s:f/fps", endTime + "/" + fps);
+						currentCaption.start = new Time(Time.FORMAT_H_M_S_F, startTime, fps);
+						currentCaption.end = new Time(Time.FORMAT_H_M_S_F, endTime, fps);
 						parseTextForSTL(currentCaption, textField, justification, tto);
 					}
 				}
@@ -231,7 +231,7 @@ public class FormatSTL implements TimedTextFileFormat {
 			aux2 = "0" + aux2;
 		aux += aux2 + aux2 + "0013216100000000";
 		// we add the time of first subtitle
-		aux += tto.captions.get(tto.captions.firstKey()).start.getTime("hhmmssff/25");
+		aux += tto.captions.get(tto.captions.firstKey()).start.getTime(Time.FORMAT_HHMMSSFF, 25.0);
 		aux += "11OOO";
 		extra = aux.getBytes();
 		System.arraycopy(extra, 0, gsiBlock, 224, extra.length);
@@ -258,13 +258,13 @@ public class FormatSTL implements TimedTextFileFormat {
 			// CS
 			ttiBlock[4] = 0;
 			// TCI
-			String[] timeCode = currentC.start.getTime("h:m:s:f/25").split(":");
+			String[] timeCode = currentC.start.getTime(Time.FORMAT_H_M_S_F, 25.0).split(":");
 			ttiBlock[5] = Byte.parseByte(timeCode[0]);
 			ttiBlock[6] = Byte.parseByte(timeCode[1]);
 			ttiBlock[7] = Byte.parseByte(timeCode[2]);
 			ttiBlock[8] = Byte.parseByte(timeCode[3]);
 			// TCO
-			timeCode = currentC.end.getTime("h:m:s:f/25").split(":");
+			timeCode = currentC.end.getTime(Time.FORMAT_H_M_S_F, 25.0).split(":");
 			ttiBlock[9] = Byte.parseByte(timeCode[0]);
 			ttiBlock[10] = Byte.parseByte(timeCode[1]);
 			ttiBlock[11] = Byte.parseByte(timeCode[2]);

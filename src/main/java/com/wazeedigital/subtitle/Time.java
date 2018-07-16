@@ -2,14 +2,28 @@ package com.wazeedigital.subtitle;
 
 public class Time {
 
+	/** Format like 01:02:03,456 (SRT) */
+	public static final String FORMAT_HH_MM_SS_COMMA_MS = "hh:mm:ss,ms";
+	/** Format like 01:02:03.456 */
+	public static final String FORMAT_HH_MM_SS_DOT_MS = "hh:mm:ss.ms";
+	/** Format like 01:02:03.45 (ASS/SSA) */
+	public static final String FORMAT_HH_MM_SS_CS = "hh:mm:ss.cs";
+	/** Format like 01020309 (EBU STL) */
+	public static final String FORMAT_HHMMSSFF = "hhmmssff";
+	/** Format like 1:2:3:9 (EBU STL) */
+	public static final String FORMAT_H_M_S_F = "h:m:s:f";
+	/** Format like 01:02:03:09 (SCC) */
+	public static final String FORMAT_HH_MM_SS_FF = "hh:mm:ss:ff";
+
 	/**
 	 * Constructor to create a time object.
 	 * 
-	 * @param format supported formats: "hh:mm:ss,ms", "h:mm:ss.cs" and "h:m:s:f/fps"
-	 * @param value string in the correct format
+	 * @param format Format of the time string
+	 * @param value Time in the format specified
+	 * @param fps Frames per second if the format has frames
 	 */
-	protected Time(String format, String value) {
-		if (format.equalsIgnoreCase("hh:mm:ss,ms")) {
+	protected Time(String format, String value, double fps) {
+		if (format.equals(FORMAT_HH_MM_SS_COMMA_MS) || format.equals(FORMAT_HH_MM_SS_DOT_MS)) {
 			// this type of format: 01:02:22,501 (used in .SRT)
 			int h, m, s, ms;
 			h = Integer.parseInt(value.substring(0, 2));
@@ -20,7 +34,7 @@ public class Time {
 			mseconds = ms + s * 1000 + m * 60000 + h * 3600000;
 
 		}
-		else if (format.equalsIgnoreCase("h:mm:ss.cs")) {
+		else if (format.equals(FORMAT_HH_MM_SS_CS)) {
 			// this type of format: 1:02:22.51 (used in .ASS/.SSA)
 			int h, m, s, cs;
 			String[] hms = value.split(":");
@@ -31,12 +45,9 @@ public class Time {
 
 			mseconds = cs * 10 + s * 1000 + m * 60000 + h * 3600000;
 		}
-		else if (format.equalsIgnoreCase("h:m:s:f/fps")) {
+		else if (format.equals(FORMAT_H_M_S_F)) {
 			int h, m, s, f;
-			float fps;
-			String[] args = value.split("/");
-			fps = Float.parseFloat(args[1]);
-			args = args[0].split("[:;]");
+			String[] args = value.split("[:;]");
 			h = Integer.parseInt(args[0]);
 			m = Integer.parseInt(args[1]);
 			s = Integer.parseInt(args[2]);
@@ -62,14 +73,15 @@ public class Time {
 	/**
 	 * Method to return a formatted value of the time stored
 	 * 
-	 * @param string supported formats: "hh:mm:ss,ms", "h:mm:ss.cs" and "hhmmssff/fps"
+	 * @param format How to format the time
+	 * @param fps Frames per second for formats that include frames. Ignored for non-frame formats
 	 * @return formatted time in a string
 	 */
-	public String getTime(String format) {
+	public String getTime(String format, double fps) {
 		// we use string builder for efficiency
 		StringBuilder time = new StringBuilder();
 		String aux;
-		if (format.equalsIgnoreCase("hh:mm:ss,ms")) {
+		if (format.equals(FORMAT_HH_MM_SS_COMMA_MS) || format.equals(FORMAT_HH_MM_SS_DOT_MS)) {
 			// this type of format: 01:02:22,501 (used in .SRT)
 			int h, m, s, ms;
 			h = mseconds / 3600000;
@@ -86,7 +98,7 @@ public class Time {
 			aux = String.valueOf(s);
 			if (aux.length() == 1) time.append('0');
 			time.append(aux);
-			time.append(',');
+			time.append(format.equals(FORMAT_HH_MM_SS_COMMA_MS) ? ',' : '.');
 			ms = mseconds % 1000;
 			aux = String.valueOf(ms);
 			if (aux.length() == 1) time.append("00");
@@ -94,7 +106,7 @@ public class Time {
 			time.append(aux);
 
 		}
-		else if (format.equalsIgnoreCase("h:mm:ss.cs")) {
+		else if (format.equals(FORMAT_HH_MM_SS_CS)) {
 			// this type of format: 1:02:22.51 (used in .ASS/.SSA)
 			int h, m, s, cs;
 			h = mseconds / 3600000;
@@ -118,13 +130,9 @@ public class Time {
 			time.append(aux);
 
 		}
-		else if (format.startsWith("hhmmssff/")) {
+		else if (format.equals(FORMAT_HHMMSSFF)) {
 			// this format is used in EBU's STL
 			int h, m, s, f;
-			float fps;
-			String[] args = format.split("/");
-			fps = Float.parseFloat(args[1]);
-			// now we concatenate time
 			h = mseconds / 3600000;
 			aux = String.valueOf(h);
 			if (aux.length() == 1) time.append('0');
@@ -143,40 +151,28 @@ public class Time {
 			time.append(aux);
 
 		}
-		else if (format.startsWith("h:m:s:f/")) {
+		else if (format.equals(FORMAT_H_M_S_F)) {
 			// this format is used in EBU's STL
 			int h, m, s, f;
-			float fps;
-			String[] args = format.split("/");
-			fps = Float.parseFloat(args[1]);
-			// now we concatenate time
 			h = mseconds / 3600000;
 			aux = String.valueOf(h);
-			// if (aux.length()==1) time.append('0');
 			time.append(aux);
 			time.append(':');
 			m = (mseconds / 60000) % 60;
 			aux = String.valueOf(m);
-			// if (aux.length()==1) time.append('0');
 			time.append(aux);
 			time.append(':');
 			s = (mseconds / 1000) % 60;
 			aux = String.valueOf(s);
-			// if (aux.length()==1) time.append('0');
 			time.append(aux);
 			time.append(':');
 			f = (mseconds % 1000) * (int) fps / 1000;
 			aux = String.valueOf(f);
-			// if (aux.length()==1) time.append('0');
 			time.append(aux);
 		}
-		else if (format.startsWith("hh:mm:ss:ff/")) {
+		else if (format.equals(FORMAT_HH_MM_SS_FF)) {
 			// this format is used in SCC
 			int h, m, s, f;
-			float fps;
-			String[] args = format.split("/");
-			fps = Float.parseFloat(args[1]);
-			// now we concatenate time
 			h = mseconds / 3600000;
 			aux = String.valueOf(h);
 			if (aux.length() == 1) time.append('0');
@@ -208,7 +204,7 @@ public class Time {
 	 */
 	@Override
 	public String toString() {
-		return getTime("h:mm:ss.cs");
+		return getTime(FORMAT_HH_MM_SS_DOT_MS, 0);
 	}
 
 }

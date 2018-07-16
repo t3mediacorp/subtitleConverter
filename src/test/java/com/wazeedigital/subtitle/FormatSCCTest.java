@@ -32,14 +32,14 @@ public class FormatSCCTest {
 
 			// 3773533=Caption{01:02:53.53..01:02:55.46, null, null: ( horn honking )
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("01:02:53.53");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("01:02:55.46");
+			assertThat(caption.start.toString()).isEqualTo("01:02:53.533");
+			assertThat(caption.end.toString()).isEqualTo("01:02:55.467");
 			assertThat(caption.content).isEqualTo("( horn honking )");
 
 			// 3808033=Caption{01:03:28.03..99:59:59.96, null, null: HEY, THERE.}
 			caption = tto.captions.get(3808033);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("01:03:28.03");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("99:59:59.96");
+			assertThat(caption.start.toString()).isEqualTo("01:03:28.033");
+			assertThat(caption.end.toString()).isEqualTo("99:59:59.967");
 			assertThat(caption.content).isEqualTo("HEY, THERE.");
 		}
 	}
@@ -59,14 +59,14 @@ public class FormatSCCTest {
 
 			// 3773533=Caption{01:02:53.53..01:02:55.46, null, null: ( horn honking )
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("01:02:53.53");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("01:02:55.46");
+			assertThat(caption.start.toString()).isEqualTo("01:02:53.530");
+			assertThat(caption.end.toString()).isEqualTo("01:02:55.460");
 			assertThat(caption.content).isEqualTo("( horn honking )");
 
 			// 3808033=Caption{01:03:28.03..99:59:59.96, null, null: HEY, THERE.}
 			caption = tto.captions.get(3808033);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("01:03:28.03");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("99:59:59.96");
+			assertThat(caption.start.toString()).isEqualTo("01:03:28.030");
+			assertThat(caption.end.toString()).isEqualTo("99:59:59.960");
 			assertThat(caption.content).isEqualTo("HEY, THERE.");
 		}
 	}
@@ -85,8 +85,8 @@ public class FormatSCCTest {
 
 			// 3601300=Caption{01:00:01.30..01:00:05.03, null, null: }
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("01:00:01.30");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("01:00:05.03");
+			assertThat(caption.start.toString()).isEqualTo("01:00:01.300");
+			assertThat(caption.end.toString()).isEqualTo("01:00:05.033");
 			assertThat(caption.content).isEqualTo("");
 		}
 	}
@@ -107,15 +107,15 @@ public class FormatSCCTest {
 			// 3635199=Caption{01:00:35.19..01:00:37.43, null, null: ( woman )<br />All right, I want you to have<br />a
 			// couple bites, all right ?}
 			Caption caption = tto.captions.firstEntry().getValue();
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("01:00:35.19");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("01:00:37.43");
+			assertThat(caption.start.toString()).isEqualTo("01:00:35.199");
+			assertThat(caption.end.toString()).isEqualTo("01:00:37.433");
 			assertThat(caption.content)
 					.isEqualTo("( woman )<br />All right, I want you to have<br />a couple bites, all right ?");
 
 			// 9091266=Caption{02:31:31.26..02:31:34.13, null, null: ♪ Love ♪}
 			caption = tto.captions.get(9091266);
-			assertThat(caption.start.getTime("h:mm:ss.cs")).isEqualTo("02:31:31.26");
-			assertThat(caption.end.getTime("h:mm:ss.cs")).isEqualTo("02:31:34.13");
+			assertThat(caption.start.toString()).isEqualTo("02:31:31.266");
+			assertThat(caption.end.toString()).isEqualTo("02:31:34.133");
 			assertThat(caption.content).isEqualTo("♪ Love ♪");
 		}
 	}

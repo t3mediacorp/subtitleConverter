@@ -1,6 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.wazeedigital</groupId>
 	<artifactId>wazee-subtitle</artifactId>
@@ -18,14 +17,12 @@ Forked July 2018 by Wazee Digital.</description>
 		<name>J. David REQUEJO RODRIGUEZ</name>
 		<url>http://subtitleconverter.net/</url>
 	</organization>
-	
 	<scm>
 		<url>git@github.com:JDaren/subtitleConverter.git</url>
 		<connection>scm:git:git@github.com:JDaren/subtitleConverter.git</connection>
 		<developerConnection>scm:git:git@github.com:JDaren/subtitleConverter.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
-	
 	<properties>
 		<main.class>Convert</main.class>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
@@ -33,8 +30,6 @@ Forked July 2018 by Wazee Digital.</description>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<github.global.server>github</github.global.server>
 	</properties>
-
-
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -42,7 +37,6 @@ Forked July 2018 by Wazee Digital.</description>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-
 	<developers>
 		<developer>
 			<email>j.david.requejo@gmail.com</email>
@@ -51,14 +45,12 @@ Forked July 2018 by Wazee Digital.</description>
 			<id>JDaren</id>
 		</developer>
 	</developers>
-
-
 	<dependencies>
 		<dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.easytesting</groupId>
@@ -67,7 +59,6 @@ Forked July 2018 by Wazee Digital.</description>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 	<profiles>
 		<profile>
 			<id>release-sign-artifacts</id>
@@ -97,7 +88,5 @@ Forked July 2018 by Wazee Digital.</description>
 			</build>
 		</profile>
 	</profiles>
-	<version>2.0-SNAPSHOT</version>
+	<version>2.1-SNAPSHOT</version>
 </project>
-
-

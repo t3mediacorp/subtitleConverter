@@ -10,8 +10,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class FormatASSTest {
-
 	private FormatASS sut;
+	private boolean verbose = false;
 
 	@Before
 	public void beforeEachTest() {
@@ -27,7 +27,7 @@ public class FormatASSTest {
 			assertThat(tto.title).isEqualTo("Wolf's rain 2");
 			assertThat(tto.styling).hasSize(1);
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(2);
 
@@ -51,7 +51,7 @@ public class FormatASSTest {
 			TimedTextObject tto = sut.parseFile("Aqui_no_hay_quien_viva_1.ass", is);
 			assertThat(tto).isNotNull();
 
-			System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			// TODO kmurray - FIX
 			// assertThat(tto.captions).hasSize(792);

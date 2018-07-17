@@ -11,6 +11,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class FormatSTLTest {
+	private boolean verbose = false;
 
 	private FormatSTL sut;
 	private String dir = "STL/";
@@ -30,7 +31,7 @@ public class FormatSTLTest {
 			assertThat(tto.fileName).isEqualTo(file);
 			assertThat(tto.styling).hasSize(6);
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(38);
 
@@ -72,7 +73,7 @@ public class FormatSTLTest {
 			assertThat(tto).isNotNull();
 			assertThat(tto.fileName).isEqualTo(file);
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(166);
 
@@ -101,7 +102,7 @@ public class FormatSTLTest {
 			assertThat(tto).isNotNull();
 			assertThat(tto.fileName).isEqualTo(file);
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(27);
 
@@ -128,7 +129,7 @@ public class FormatSTLTest {
 			assertThat(tto).isNotNull();
 			assertThat(tto.fileName).isEqualTo(file);
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(598);
 

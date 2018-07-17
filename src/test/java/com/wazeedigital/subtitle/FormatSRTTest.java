@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class FormatSRTTest {
-
-	private FormatSRT sut;
+\	private FormatSRT sut;
+	private boolean verbose = false;
 
 	@Before
 	public void beforeEachTest() {
@@ -25,7 +25,7 @@ public class FormatSRTTest {
 			assertThat(tto.fileName).isEqualTo(("Avengers.2012.Eng.Subs.srt"));
 			assertThat(tto.warnings).isEqualTo(("List of non fatal errors produced during parsing:\n\n"));
 
-			System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(1760);
 

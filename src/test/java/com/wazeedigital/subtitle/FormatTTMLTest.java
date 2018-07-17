@@ -10,6 +10,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class FormatTTMLTest {
+	private boolean verbose = false;
 
 	private FormatSTL sut;
 	private String dir = "TTML/";
@@ -29,7 +30,7 @@ public class FormatTTMLTest {
 			assertThat(tto).isNotNull();
 			assertThat(tto.fileName).isEqualTo(file);
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(166);
 
@@ -59,7 +60,7 @@ public class FormatTTMLTest {
 			assertThat(tto).isNotNull();
 			assertThat(tto.fileName).isEqualTo(file);
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(166);
 
@@ -89,7 +90,7 @@ public class FormatTTMLTest {
 			assertThat(tto).isNotNull();
 			assertThat(tto.fileName).isEqualTo(file);
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(166);
 

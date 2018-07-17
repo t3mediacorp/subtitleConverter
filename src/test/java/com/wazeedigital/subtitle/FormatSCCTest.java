@@ -10,8 +10,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 public class FormatSCCTest {
-
 	private FormatSCC sut;
+	private boolean verbose = false;
 
 	@Before
 	public void beforeEachTest() {
@@ -26,7 +26,7 @@ public class FormatSCCTest {
 			assertThat(tto.fileName).isEqualTo(("sccTest.scc"));
 			assertThat(tto.warnings).contains(("Only data from CC channel 1 will be extracted."));
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(2);
 
@@ -53,7 +53,7 @@ public class FormatSCCTest {
 			assertThat(tto.fileName).isEqualTo(("test2.scc"));
 			assertThat(tto.warnings).contains(("Only data from CC channel 1 will be extracted."));
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(2);
 
@@ -79,7 +79,7 @@ public class FormatSCCTest {
 			assertThat(tto.fileName).isEqualTo(("test3.scc"));
 			assertThat(tto.warnings).contains(("Only data from CC channel 1 will be extracted."));
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(11);
 
@@ -100,7 +100,7 @@ public class FormatSCCTest {
 			assertThat(tto.title).isEqualTo(("bliss.scc"));
 			assertThat(tto.warnings).contains(("Only data from CC channel 1 will be extracted."));
 
-			// System.out.println(tto.captions);
+			if (verbose) System.out.println(tto.captions);
 
 			assertThat(tto.captions).hasSize(1983);
 

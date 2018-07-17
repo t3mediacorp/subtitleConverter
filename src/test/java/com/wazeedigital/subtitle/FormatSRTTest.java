@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class FormatSRTTest {
-\	private FormatSRT sut;
+	private FormatSRT sut;
 	private boolean verbose = false;
 
 	@Before

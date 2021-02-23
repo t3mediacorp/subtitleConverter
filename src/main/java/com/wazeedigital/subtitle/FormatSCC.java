@@ -159,12 +159,14 @@ public class FormatSCC implements TimedTextFileFormat {
 												// clear screen text
 												if (newCaption != null) {
 													newCaption.end = currentTime;
-													String style = "";
-													style += color;
-													if (underlined) style += "U";
-													if (italics) style += "I";
-													newCaption.style = tto.styling.get(style);
-													tto.captions.put(newCaption.start.mseconds, newCaption);
+													if (newCaption.start != null) {
+														String style = "";
+														style += color;
+														if (underlined) style += "U";
+														if (italics) style += "I";
+														newCaption.style = tto.styling.get(style);
+														tto.captions.put(newCaption.start.mseconds, newCaption);
+													}
 												}
 												// new caption starts with roll up style
 												newCaption = new Caption();
@@ -326,8 +328,8 @@ public class FormatSCC implements TimedTextFileFormat {
 												// we decode the special char and add it to the text buffer
 												textBuffer += decodeSpecialChar(word);
 											else
-												// we decode the special char and add it to the text
-												newCaption.content += decodeSpecialChar(word);
+											// we decode the special char and add it to the text
+											newCaption.content += decodeSpecialChar(word);
 										}
 										else if ((word & 0x1660) == 0x1220) {
 											// it is an extended character code
@@ -337,8 +339,8 @@ public class FormatSCC implements TimedTextFileFormat {
 												// we decode the extended char and add it to the text buffer
 												decodeXtChar(textBuffer, word);
 											else
-												// we decode the extended char and add it to the text
-												decodeXtChar(newCaption.content, word);
+											// we decode the extended char and add it to the text
+											decodeXtChar(newCaption.content, word);
 
 										}
 										else {

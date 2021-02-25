@@ -11,7 +11,7 @@ import org.junit.Test;
 
 public class FormatSCCTest {
 	private FormatSCC sut;
-	private boolean verbose = true;
+	private boolean verbose = false;
 
 	@Before
 	public void beforeEachTest() {
